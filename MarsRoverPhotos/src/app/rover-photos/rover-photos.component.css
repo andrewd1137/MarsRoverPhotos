@@ -1,0 +1,32 @@
+.page-heading
+{
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.number-input
+{
+    text-align: center;
+}
+
+.submit-button
+{
+    background-color: blue;
+    color: white;
+    margin-left: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+}
+
+.card-container
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.table-container
+{
+    margin-left: 2rem;
+    margin-right: 2rem;
+}

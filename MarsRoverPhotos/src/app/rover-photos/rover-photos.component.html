@@ -1,0 +1,126 @@
+<!-- <h1>
+  {{pageTitle}}
+</h1>
+<div class='card'>
+    <div class='card-body'>
+      <div class='row'>
+        <div class='col-md-4'>
+        </div>
+        <div class='col-md-4'>
+          <h3>Enter SOL Day: 
+            <span><input type="number"></span>
+            <span>
+              <button class="btn btn-primary submit" (click)="getPhotosFromSol(solFilter)">
+                Submit</button>
+              </span>
+            </h3>
+        </div>
+      </div>
+      <div class='table-responsive'>
+        <table class='table'>
+          <thead>
+            <tr>
+              <th>
+                <button class='btn btn-primary'
+                        (click)='toggleImage()'>
+                  {{showImage ? 'Hide' : 'Show'}} Image
+                </button>
+              </th>
+              <th>ID</th>
+              <th>Sol</th>
+              <th>Camera</th>
+              <th>Earth Date</th>
+              <th>Rover Name</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor='let mySol of listOfSols'>
+              <td>
+                <img *ngIf='showImage'
+                     [src]='mySol.img_src'
+                     width="500px"
+                     height="500px"/>
+              </td>
+              <td>{{mySol.id}}</td>
+              <td>{{mySol.sol}}</td>
+              <td>{{mySol.camera.full_name}}</td>
+              <td>{{mySol.earth_date}}</td>
+              <td>{{mySol.rover.name}}</td>
+              <td>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div> -->
+
+<h1 class="page-heading">
+  {{pageTitle}}
+</h1>
+<h3 class="number-input">Enter SOL Day: 
+  <span><input type="number"></span>
+  <span>
+    <button class="submit-button" (click)="getPhotosFromSol(solFilter)">
+      Submit</button>
+    </span>
+</h3>
+
+<h3 class="number-input">
+  Get Random SOl Day: 
+  <button class='btn btn-primary'
+  (click)='getRandomSolDay()'>
+  Random
+</button>
+</h3>
+
+<h3 class="number-input">
+  <button class='btn btn-primary'
+          (click)='toggleImage()'>
+          {{showImage ? 'Hide' : 'Show'}} Image
+  </button>
+</h3>
+
+<!-- if you show the images, it will show the cards with each image -->
+<div *ngIf="showImage">
+  <div *ngFor='let mySol of listOfSols' class="card-container">
+    <div class="card mb-3">
+      <img [src]='mySol.img_src'    
+          width="800px"
+          height="800px"/>
+      <div class="card-body">
+        <h5 class="card-title">ID: {{mySol.id}}</h5>
+        <h5 class="card-title">SOL: {{mySol.sol}}</h5>
+        <h5 class="card-title">Camera Name: {{mySol.camera.full_name}}</h5>
+        <h5 class="card-title">Earth Date: {{mySol.earth_date}}</h5>
+        <h5 class="card-title">Rover Name: {{mySol.rover.name}}</h5>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- If you hide the images, it will show this table -->
+<div *ngIf="!showImage" class="table-container">
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Sol</th>
+        <th>Camera</th>
+        <th>Earth Date</th>
+        <th>Rover Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let mySol of listOfSols'>
+        <td>{{mySol.id}}</td>
+        <td>{{mySol.sol}}</td>
+        <td>{{mySol.camera.full_name}}</td>
+        <td>{{mySol.earth_date}}</td>
+        <td>{{mySol.rover.name}}</td>
+        <td>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
