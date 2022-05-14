@@ -43,6 +43,9 @@ export class RoverPhotosComponent implements OnInit {
   getRandomSolDay()
   {
     this.marsService.getMarsRoverPhotosBySol(this.randomSolDay()).subscribe(result => {
+      //set the list of sols back to an empty list
+      this.listOfSols = [];
+      
       //since the way that nasa sends the data to us from their api is weird, i had to do this to display the images.
       for(let index:number = 0; index<result.photos.length; index++)
       {
